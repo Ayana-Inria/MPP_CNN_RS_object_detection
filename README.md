@@ -33,7 +33,7 @@ python setup.py build_ext --inplace
 
 ## Description and usage 
 We propose 2 versions of our model :
-- **Manual weights model**: learns likelihood terms with CNNs, weights of energy terms (likelihood and priors) are set by hand ([model_configs/mpp/config_hrcM.json](model_configs/mpp/config_hrcM.json))
+- **Manual weights model**: learns likelihood terms with CNNs, weights of energy terms (likelihood and priors) are set by hand ([model_configs/mpp/config_hrcM.json](/model_configs/mpp/config_hrcM.json))
 - **Learned energy weights**: energy weights learn 
 
 
@@ -49,7 +49,7 @@ You can skip to 3 for inference as pre-trained models are supplied.
     ```
 2. Set energy weights or train
     **For manual weights** :
-    set model config in [models_storage/mpp/mpp_hrcM/config.json](models_storage/mpp/mpp_hrcM/config.json)
+    set model config in `models_storage/mpp/mpp_hrcM/config.json`
     **For learned weights**:
     ```
     python main.py -p train -m mpp -c config_mpp_log.json -o
@@ -84,11 +84,11 @@ object_detection
 
 
 ## Data
-We provide in [data_sample/DOTA_gsd50](data_sample/DOTA_gsd50) a limited sample of the data, you can download the full DOTA dataset from https://captain-whu.github.io/DOTA/dataset.html 
+We provide in `data_sample/DOTA_gsd50` a limited sample of the data at 0.5 m/pixel, you can download the full DOTA dataset (that contains various sources and resolutions) from https://captain-whu.github.io/DOTA/dataset.html 
 
-We provide the code to transform the original high resolution DOTA dataset into a 0.50 cm/pixel dataset:
-1. setup paths in config file: [data/translation/translate_DOTA_config.json](data/translation/translate_DOTA_config.json)
-2. make sure data sorage paths are set as desired in [paths_config.json](paths_config.json)
+We provide the code to transform the original high resolution DOTA dataset our a 0.50 m/pixel dataset:
+1. setup paths in config file: `data/translation/translate_DOTA_config.json`
+2. make sure data sorage paths are set as desired in `paths_config.json`
 3. run 
     ```
     python main.py -p translate_dota -c data/translation/translate_DOTA_config.json
@@ -131,6 +131,7 @@ each annotation is a pickled dict with key :
 - `categories`: array of size N of strings, encoding the category of objects
 
 
+## Acknowledgement
 
-
+Thanks to BPI France (LiChiE contract) for funding this research work, and to the OPAL infrastructure from Université Côte d'Azur for providing computational resources and support.
 
