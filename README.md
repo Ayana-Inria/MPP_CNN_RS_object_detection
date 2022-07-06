@@ -33,7 +33,7 @@ python setup.py build_ext --inplace
 
 ## Description and usage 
 We propose 2 versions of our model :
-- **Manual weights model**: learns likelihood terms with CNNs, weights of energy terms (likelihood and priors) are set by hand ([model_configs/mpp/config_hrcM.json](/model_configs/mpp/config_hrcM.json))
+- **Manual weights model**: learns likelihood terms with CNNs, weights of energy terms (likelihood and priors) are set by hand (`model_configs/mpp/config_hrcM.json`)
 - **Learned energy weights**: same as previously, but energy terms weights are learned on the dataset
 
 
