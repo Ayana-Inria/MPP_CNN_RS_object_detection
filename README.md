@@ -5,12 +5,12 @@ This code was used to produce the results shown in:
 > "CNN-based energy learning for MPP object detection in satellite images"
 Jules Mabon, Mathias Ortner, Josiane Zerubia
 In Proc. 2022 IEEE International Workshop on Machine Learning for Signal Processing (MLSP)
-[paper MISSING LINK]()
+[paper](https://hal.inria.fr/view/index/docid/3715331)
 
 > "Point process and CNN for small objects detection in satellite images"
 Jules Mabon, Mathias Ortner, Josiane Zerubia
 In Proc. 2022 SPIE Image and Signal Processing for Remote Sensing XXVIII
-[paper MISSING LINK]()
+[paper (MISSING LINK)]()
 
 If you use this code please cite our work :
 > @inproceedings{mabon2022,
@@ -33,17 +33,33 @@ python setup.py build_ext --inplace
 - conda env is provided `env.yml`, setup using `conda env create -f env.yml`
 
 ## Description and usage 
-TODO
+We propose 2 versions of our model :
+- **Manual weights model**: learns likelihood terms with CNNs, weights of energy terms (likelihood and priors) are set by hand ([model_configs/mpp/config_hrcM.json](model_configs/mpp/config_hrcM.json))
+- **Learned energy weights**: energy weights learn 
 
 
 ### Procedure
+You can skip to 3 for inference as pre-trained models are supplied.
 
 1. Train the position and marks models
-    - todo
-2. Set energy weights
-    - todo
+    ```
+    python main.py -p train -m posnet -c config_pos.json -o
+    ```
+    ```
+    python main.py -p train -m posnet -c config_pos.json -o
+    ```
+2. Set energy weights or train
+    **For manual weights** :
+    set model config in [models_storage/mpp/mpp_hrcM/config.json](models_storage/mpp/mpp_hrcM/config.json)
+    **For learned weights**:
+    ```
+    python main.py -p train -m mpp -c config_mpp_log.json -o
+    ```
 3. infer on data
-    - todo
+    ```
+    python main.py -p infer -m mpp -c <model>
+    ```
+    with model either `mpp_hrcM` or `mpp_log`
 
 
 ## Project structure
@@ -69,12 +85,20 @@ object_detection
 
 
 ## Data
-TODO
+We provide in [data_sample/DOTA_gsd50](data_sample/DOTA_gsd50) a limited sample of the data, you can download the full DOTA dataset from https://captain-whu.github.io/DOTA/dataset.html 
+
+We provide the code to transform the original high resolution DOTA dataset into a 0.50 cm/pixel dataset:
+1. setup paths in config file: [data/translation/translate_DOTA_config.json](data/translation/translate_DOTA_config.json)
+2. make sure data sorage paths are set as desired in [paths_config.json](paths_config.json)
+3. run 
+    ```
+    python main.py -p translate_dota -c data/translation/translate_DOTA_config.json
+    ```
+
 
 ### Data structure
 
-
-each file of a dataset folder is name as `number.extension` (ie `0004.png`), files should match between folder with
+Each file of a dataset folder is name as `number.extension` (ie `0004.png`), files should match between folder with
 their id. `/utils/data.py` provides `check_data_match` that checks if two files correspond (using the regular
 expression `([0-9]+)\.[a-zA-z]+`)
 
@@ -106,6 +130,8 @@ each annotation is a pickled dict with key :
 - `centers`: Nx2 array of centers
 - `parameters`: Nx3 array of parameters (with a,b,w : short, long, angle)
 - `categories`: array of size N of strings, encoding the category of objects
+
+
 
 
 

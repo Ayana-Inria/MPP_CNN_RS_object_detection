@@ -1,8 +1,8 @@
 {
  "name": "DOTA_gsd50",
  "dota_base_path": [
-  "/user/jmabon/home/Documents/data/DOTA/",
-  "/data/ayana/share/Airbus/DOTA/"
+  "a/path/to/dota/dataset",
+  "another/path/to/dota/dataset"
  ],
  "subsets": [
   "train",
