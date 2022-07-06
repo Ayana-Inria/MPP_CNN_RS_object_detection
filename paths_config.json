@@ -1,0 +1,8 @@
+{
+  "dataset_path": [
+    "data_sample/"
+  ],
+  "model_path": [
+    "models_storage/"
+  ]
+}

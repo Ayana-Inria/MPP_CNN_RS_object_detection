@@ -1,0 +1,7 @@
+{
+  "name": "COWC_50",
+  "cowc_base_path": ["/home/jmabon/Documents/data/COWC/ground_truth_sets"],
+  "target_gsd": 0.50,
+  "prune_empty": false,
+  "drop_rate": 0.0
+}

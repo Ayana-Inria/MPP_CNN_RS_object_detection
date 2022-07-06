@@ -1,0 +1,18 @@
+{
+  "model_name": "bba_vec-025",
+  "num_epoch": 50,
+  "batch_size": 4,
+  "num_workers": 6,
+  "init_lr": 1.25e-4,
+  "input_h": 608,
+  "input_w": 608,
+  "K": 3000,
+  "conf_thresh": 0.1,
+  "ngpus": 1,
+  "resume_train": "",
+  "resume": "model_50.pth",
+  "dataset": "dota_gsd50",
+  "data_dir": "DOTA_gsd50_025",
+  "phase": "train",
+  "wh_channels": 8
+}

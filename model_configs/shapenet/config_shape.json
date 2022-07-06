@@ -1,0 +1,46 @@
+{
+  "model_name": "shape_dota",
+  "data_loader": {
+    "dataset": "DOTA_gsd50",
+    "dataset_update_interval": 8,
+    "patch_maker_params": {
+      "patch_size": 128,
+      "n_patches": 16384,
+      "unf_sampler_weight": 0.33,
+      "obj_sampler_weight": 0.66,
+      "obj_sampler_sigma": 10
+    },
+    "augment_params": {
+      "aug_level": "strong",
+      "hist_match_images": true
+    }
+  },
+  "trainer": {
+    "n_epochs": 256,
+    "n_classes": 32,
+    "batch_size": 64,
+    "figure_interval": 4
+  },
+  "model": {
+    "hidden_dims": [
+      32,
+      64,
+      128,
+      256
+    ]
+  },
+  "loss": {
+    "learning_rate": 1e-3,
+    "mask_mode": "shapes",
+    "mask_sigma": "auto",
+    "focal_loss": false,
+    "focal_loss_args": {
+      "alpha": 0.5,
+      "gamma": 2.0
+    }
+  },
+  "mappings": {
+    "size_mapping_min": 0,
+    "size_mapping_max": 32
+  }
+}

@@ -1,0 +1,35 @@
+{
+ "model_name": "mpp_hrcM",
+ "dataset": {
+  "dataset": "DOTA_gsd50",
+  "position_model": "posvec_dota",
+  "shape_model": "shape_dota",
+  "patch_size": 256
+ },
+ "data_loader": {
+  "batch_size": 8
+ },
+ "manual": {
+  "threshold": 0.0,
+  "Data": 0.5,
+  "Prior": 0.5,
+  "PositionEnergy": 0.8,
+  "ShapeEnergy": 0.2,
+  "RectangleOverlapEnergy": 0.6,
+  "ShapeAlignmentEnergy": 0.05,
+  "AreaPriorEnergy": 0.2
+ },
+ "calibration": {
+  "n_images": 8
+ },
+ "inference": {
+  "rjmcmc_params": {
+   "samples_interval": 128,
+   "init_temperature": 1,
+   "target_temperature": 0.0,
+   "alpha_t": 0.999,
+   "burn_in": 30000
+  },
+  "max_score": 4.0
+ }
+}

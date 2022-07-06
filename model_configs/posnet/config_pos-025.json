@@ -1,0 +1,50 @@
+{
+  "model_name": "posvec_dota-025",
+  "comment": "clf trained on div",
+  "data_loader": {
+    "dataset": "DOTA_gsd50_025",
+    "dataset_update_interval": 8,
+    "error_update_interval": 16,
+    "patch_maker_params": {
+      "patch_size": 128,
+      "n_patches": 16384,
+      "unf_sampler_weight": 0.33,
+      "obj_sampler_weight": 0.66,
+      "obj_sampler_sigma": 10
+    },
+    "augment_params": {
+      "aug_level": "strong",
+      "hist_match_images": true
+    }
+  },
+  "trainer": {
+    "n_epochs": 256,
+    "batch_size": 64,
+    "figure_interval": 4
+  },
+  "div_clf_model": true,
+  "model": {
+    "hidden_dims": [
+      32,
+      64,
+      128,
+      256
+    ]
+  },
+  "loss": {
+    "learning_rate": 1e-3,
+    "target_mode": "uvec",
+    "max_distance": 8,
+    "n_classes": 4,
+    "learn_mask": true,
+    "compute_relevant": true,
+    "balanced_mask_loss": true,
+    "focal_loss": false,
+    "vec_loss_on_prod": true,
+    "bin_map_dil": 0.6
+  },
+  "mappings": {
+    "size_mapping_min": 0,
+    "size_mapping_max": 32
+  }
+}
