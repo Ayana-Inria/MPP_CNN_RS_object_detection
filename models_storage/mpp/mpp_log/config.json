@@ -1,0 +1,44 @@
+{
+ "model_name": "mpp_log",
+ "dataset": {
+  "dataset": "DOTA_gsd50",
+  "position_model": "posvec_dota",
+  "shape_model": "shape_dota",
+  "patch_size": 256
+ },
+ "data_loader": {
+  "batch_size": 8
+ },
+ "energy_setup": "no-calibration",
+ "energy_setup_params": {
+  "ratio_prior": true
+ },
+ "calibration": {
+  "n_images": 8,
+  "params": {}
+ },
+ "ordering_criterion": {
+  "n_epochs": 8,
+  "samples_per_image": 16,
+  "optim": "adam",
+  "learning_rate": 0.05,
+  "reg_weight": 0.0,
+  "weight_model_type": "logistic",
+  "neg_pert_config": {
+   "iter_per_point": 1.0
+  },
+  "lr_scheduler": true,
+  "lr_scheduler_params": {
+   "gamma": 0.95
+  }
+ },
+ "inference": {
+  "rjmcmc_params": {
+   "samples_interval": 1,
+   "init_temperature": 1,
+   "target_temperature": 0.0,
+   "alpha_t": 0.999,
+   "burn_in": 30000
+  }
+ }
+}
