@@ -126,3 +126,4 @@ dmypy.json
 .idea/
 
 data/DOTA_devkit
+data_sample/inference/*

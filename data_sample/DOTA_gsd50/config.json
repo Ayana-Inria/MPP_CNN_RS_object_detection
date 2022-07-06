@@ -1,0 +1,20 @@
+{
+ "name": "DOTA_gsd50",
+ "dota_base_path": [
+  "/user/jmabon/home/Documents/data/DOTA/",
+  "/data/ayana/share/Airbus/DOTA/"
+ ],
+ "subsets": [
+  "train",
+  "val"
+ ],
+ "categories": [
+  "large-vehicle",
+  "small-vehicle"
+ ],
+ "banned_sources": [
+  "Aerial"
+ ],
+ "target_gsd": 0.5,
+ "prune_empty": true
+}
