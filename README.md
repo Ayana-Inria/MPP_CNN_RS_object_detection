@@ -1,5 +1,4 @@
-# MPP_CNN_RS_object_detection
-MPP + CNN for object detection in remotely sensed images
+# MPP & CNN for object detection in remotely sensed images
 
 This code was used to produce the results shown in:
 > "CNN-based energy learning for MPP object detection in satellite images"
