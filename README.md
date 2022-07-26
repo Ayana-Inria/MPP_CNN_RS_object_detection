@@ -9,7 +9,7 @@ In Proc. 2022 IEEE International Workshop on Machine Learning for Signal Process
 > "Point process and CNN for small objects detection in satellite images"
 Jules Mabon, Mathias Ortner, Josiane Zerubia
 In Proc. 2022 SPIE Image and Signal Processing for Remote Sensing XXVIII
-[paper (not online yet)]()
+[paper](https://hal.inria.fr/hal-03738027v1)
 
 If you use this code please cite our work :
 > @inproceedings{mabon2022,
